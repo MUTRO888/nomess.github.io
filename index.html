@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一份工作，两种感受</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 序章：提问 -->
+    <section id="landing" class="screen">
+        <div class="landing-content">
+            <h1 class="landing-title">
+                <span>你的工作，让你感到</span>
+                <span class="highlight">疲惫</span>
+                <span>还是</span>
+                <span class="highlight">成长</span>
+                <span>？</span>
+            </h1>
+        </div>
+        <div class="scroll-indicator" onclick="document.getElementById('journey-start').scrollIntoView({behavior: 'smooth'});">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- 第一章：共鸣 -->
+    <section id="journey-start" class="screen text-screen">
+        <div class="content-wrapper-text">
+            <p class="p-large">我们习惯了清单、提醒、截止日期。</p>
+            <p class="p-large">习惯了在不同的工具间切换，拾起被遗忘的碎片。</p>
+            <p class="p-large">但工具，本不该是焦虑的另一个源头。</p>
+        </div>
+    </section>
+
+    <!-- 第二章：转折 -->
+    <section id="concept" class="screen">
+        <div class="content-wrapper-center">
+            <h2 class="concept-title">我们设计的，不是一个工具<br>而是一种<span class="highlight-yellow">关系</span></h2>
+            <div class="concept-visual">
+                <img src="icons/IMG_9435.webp" alt="AI伙伴" class="mascot-medium">
+                <p>一个与你共生的AI伙伴</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第三章：体验 - 任务捕获 (多渠道版) -->
+    <section id="capture" class="screen-expanded">
+        <div class="content-wrapper-full">
+            <div class="capture-header">
+                <div class="vertical-title">
+                    <h2>无感捕获</h2>
+                </div>
+                <div class="header-content">
+                    <p class="header-intro">我们遵循"自动化优先"和"零打扰"原则，通过模块化的信息管道，系统化地解决任务的自动捕获问题。</p>
+                </div>
+            </div>
+
+            <div class="capture-main">
+                <!-- 渠道导航 -->
+                <div class="channel-nav">
+                    <button class="channel-btn active" data-target="channel-im">
+                        <span class="channel-name">即时通讯</span>
+                    </button>
+                    <button class="channel-btn" data-target="channel-docs">
+                        <span class="channel-name">学城文档</span>
+                    </button>
+                    <button class="channel-btn" data-target="channel-ones">
+                        <span class="channel-name">项目管理</span>
+                    </button>
+                    <button class="channel-btn" data-target="channel-meeting">
+                        <span class="channel-name">会议纪要</span>
+                    </button>
+                    <button class="channel-btn" data-target="channel-voice">
+                        <span class="channel-name">语音录入</span>
+                    </button>
+                </div>
+
+                <!-- 渠道内容区 -->
+                <div class="channel-content">
+
+                    <!-- 即时通讯渠道 -->
+                    <div id="channel-im" class="channel-panel active">
+                        <div class="channel-showcase">
+                            <div class="demo-area">
+                                <div class="demo-desktop" id="demo-im">
+                                    <!-- 现有的即时通讯演示保持不变 -->
+                                    <div class="desktop-sidebar">
+                                        <div class="sidebar-user"></div>
+                                        <div class="sidebar-icons">
+                                            <div class="icon active"></div>
+                                            <div class="icon"></div>
+                                            <div class="icon"></div>
+                                            <div class="icon"></div>
+                                        </div>
+                                    </div>
+                                    <div class="desktop-chatlist">
+                                        <div class="chatlist-header">消息</div>
+                                        <div class="chat-item active">
+                                            <div class="chat-avatar"></div>
+                                            <div class="chat-info">
+                                                <p class="chat-title">项目沟通群</p>
+                                                <p class="chat-preview">李四: 好的，我稍后处理。</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="desktop-main">
+                                        <div class="desktop-header">
+                                            <div class="desktop-title">项目沟通群</div>
+                                        </div>
+                                        <div class="desktop-content" id="desktop-content">
+                                            <!-- 静态内容将由JS注入 -->
+                                        </div>
+                                        <div class="desktop-input-area">
+                                            <div class="input-box"></div>
+                                            <div class="input-actions"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="channel-description">
+                                <h3>在对话中，发现任务</h3>
+                                <p class="desc-intro">多选任务消息，AI伙伴即时解析对话上下文，一键生成结构化待办事项。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 学城文档渠道 -->
+                    <div id="channel-docs" class="channel-panel">
+                        <div class="channel-showcase">
+                            <div class="demo-area">
+                                <div class="demo-docs" id="demo-docs">
+                                    <!-- 学城文档界面 - 简化版 -->
+                                    <div class="docs-header">
+                                        <h2>Q3开发计划 - 项目协作文档</h2>
+                                        <div class="content-meta">
+                                            <span>最后编辑：张三 • 2小时前</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="docs-content">
+                                        <div class="content-body">
+                                            <h3>开发安排</h3>
+                                            <div class="task-section">
+                                                <div class="task-item highlighted" data-task="task1">
+                                                    <span class="task-text">
+                                                        <strong>@李四</strong> 完成AI任务识别界面设计，下周三前完成
+                                                    </span>
+                                                </div>
+
+                                                <div class="task-item" data-task="task2">
+                                                    <span class="task-text">
+                                                        <strong>@李四</strong> 整理情感识别接口文档，下周开会前提交
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <!-- 自定义右键菜单 -->
+                                            <div class="custom-context-menu" id="custom-context-menu" style="display: none;">
+                                                <div class="context-menu-divider"></div>
+                                                <div class="context-menu-item primary" id="context-add-todo">
+                                                    <span class="menu-text">加入待办</span>
+                                                </div>
+                                            </div>
+
+                                            <!-- AI处理界面 -->
+                                            <div class="docs-ai-processing" id="docs-ai-processing" style="display: none;">
+                                                <div class="docs-processing-content">
+                                                    <img src="icons/IMG_9438.webp" class="docs-ai-icon" alt="AI伙伴">
+                                                    <div class="docs-processing-text">
+                                                        <div class="docs-processing-title">AI正在解析文档内容...</div>
+                                                        <div class="docs-processing-progress">
+                                                            <div class="docs-progress-bar">
+                                                                <div class="docs-progress-fill"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- 待办结果界面 -->
+                                            <div class="docs-todo-result" id="docs-todo-result" style="display: none;">
+                                                <div class="docs-result-header">
+                                                    <img src="icons/IMG_9438.webp" class="docs-result-icon" alt="AI伙伴">
+                                                    <div class="docs-result-title">从文档中提取的任务</div>
+                                                </div>
+                                                <div class="docs-todo-items">
+                                                    <div class="docs-todo-item">
+                                                        <div class="docs-todo-check"></div>
+                                                        <div class="docs-todo-text">
+                                                            <div class="docs-todo-title">完成AI任务识别界面设计</div>
+                                                            <div class="docs-todo-detail">截止：下周三 | 优先级：高 | 状态：待开始</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="docs-todo-item">
+                                                        <div class="docs-todo-check"></div>
+                                                        <div class="docs-todo-text">
+                                                            <div class="docs-todo-title">整理情感识别接口文档</div>
+                                                            <div class="docs-todo-detail">截止：下周开会前 | 优先级：中 | 状态：待开始</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="docs-result-actions">
+                                                    <button class="docs-result-btn secondary">编辑</button>
+                                                    <button class="docs-result-btn primary" id="docs-confirm-todo">确认添加</button>
+                                                </div>
+                                            </div>
+
+                                            <h3>会议纪要</h3>
+                                            <div class="meeting-notes">
+                                                <p>昨天开会讨论了一下进度，大家都挺忙的。<strong class="mention-highlight">@产品团队</strong> 那边说需求可能还要改，让我们先按现在的做。</p>
+                                                <p>另外，UI那块 <strong>@设计师小李</strong> 说参考一下苹果的设计风格，简洁一点比较好。</p>
+                                            </div>
+
+                                            <h3>其他事项</h3>
+                                            <div class="other-items">
+                                                <div class="task-item highlighted" data-task="task6">
+                                                    <span class="task-text">
+                                                        <strong>@全体成员</strong> 记得下周五团建，地点还没定，有建议的可以群里说一下
+                                                    </span>
+                                                </div>
+
+                                                <div class="task-item" data-task="task7">
+                                                    <span class="task-text">
+                                                        代码review要认真点，最近bug有点多
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="channel-description">
+                                <h3>在文档中，捕获指派</h3>
+                                <p class="desc-intro">利用学城AI能力，自动扫描文档更新，精准识别@提及和复选框任务列表。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 项目管理渠道 -->
+                    <div id="channel-ones" class="channel-panel">
+                        <div class="channel-showcase">
+                            <div class="demo-area">
+                                <div id="demo-ones" class="ones-interface">
+                                    <!-- 项目管理界面头部 -->
+                                    <div class="ones-header">
+                                        <div class="project-title">产品迭代 v2.3</div>
+                                        <div class="sync-status">
+                                            <div class="sync-indicator"></div>
+                                            <span class="sync-text">实时同步</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- 任务列表 -->
+                                    <div class="ones-task-list">
+                                        <div class="task-group">
+                                            <div class="group-header">
+                                                <div class="group-title">待处理</div>
+                                                <div class="task-count">2</div>
+                                            </div>
+                                            <div class="task-items">
+                                                <div class="ones-task-item" data-task="ones-task1">
+                                                    <div class="task-priority high"></div>
+                                                    <div class="task-content">
+                                                        <div class="task-title">优化用户登录流程</div>
+                                                        <div class="task-meta">
+                                                            <span class="assignee">@李四</span>
+                                                            <span class="due-date">明天截止</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="task-status">待开始</div>
+                                                </div>
+                                                <div class="ones-task-item" data-task="ones-task2">
+                                                    <div class="task-priority medium"></div>
+                                                    <div class="task-content">
+                                                        <div class="task-title">完成API文档更新</div>
+                                                        <div class="task-meta">
+                                                            <span class="assignee">@李四</span>
+                                                            <span class="due-date">本周五</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="task-status">进行中</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- AI处理界面 -->
+                                    <div class="ones-ai-processing" id="ones-ai-processing" style="display: none;">
+                                        <div class="processing-content">
+                                            <div class="ai-avatar"></div>
+                                            <div class="processing-text">
+                                                <div class="processing-title">正在同步任务状态...</div>
+                                                <div class="processing-progress">
+                                                    <div class="ones-progress-bar">
+                                                        <div class="ones-progress-fill"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 同步结果 -->
+                                    <div class="ones-sync-result" id="ones-sync-result" style="display: none;">
+                                        <div class="result-header">
+                                            <div class="result-avatar"></div>
+                                            <div class="result-title">任务状态已更新</div>
+                                        </div>
+                                        <div class="sync-summary">
+                                            <div class="sync-item">
+                                                <div class="sync-action">新增</div>
+                                                <div class="sync-detail">2个待办事项已添加到个人清单</div>
+                                            </div>
+                                            <div class="sync-item">
+                                                <div class="sync-action">更新</div>
+                                                <div class="sync-detail">1个任务状态已同步至"进行中"</div>
+                                            </div>
+                                        </div>
+                                        <div class="result-actions">
+                                            <button class="result-btn secondary">查看详情</button>
+                                            <button class="result-btn primary" id="ones-confirm">确认同步</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="channel-description">
+                                <h3>在系统中，同步任务</h3>
+                                <p class="desc-intro">通过API与Ones系统直接对接，自动同步待处理任务，支持双向状态更新。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 会议纪要渠道 -->
+                    <div id="channel-meeting" class="channel-panel">
+                        <div class="channel-showcase">
+                            <div class="demo-area">
+                                <div id="demo-meeting" class="meeting-interface">
+                                    <!-- 会议信息头部 -->
+                                    <div class="meeting-header">
+                                        <div class="meeting-title">产品规划讨论会</div>
+                                        <div class="meeting-meta">
+                                            <span class="meeting-time">2024.01.15 14:00-15:30</span>
+                                            <div class="analysis-status">
+                                                <div class="status-indicator"></div>
+                                                <span class="status-text">AI分析完成</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 会议纪要内容 -->
+                                    <div class="meeting-content">
+                                        <div class="meeting-section">
+                                            <div class="section-title">行动项</div>
+                                            <div class="meeting-text">
+                                                <p class="highlight-text" data-action="action1">
+                                                    <strong>@李四</strong> 完成用户体验优化方案，本周五前提交
+                                                </p>
+                                                <p class="highlight-text" data-action="action2">
+                                                    <strong>@李四</strong> 协调API接口设计评审，下周一前完成
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- AI分析处理界面 -->
+                                    <div class="meeting-ai-processing" id="meeting-ai-processing" style="display: none;">
+                                        <div class="processing-content">
+                                            <div class="ai-avatar"></div>
+                                            <div class="processing-text">
+                                                <div class="processing-title">正在提取行动项...</div>
+                                                <div class="processing-progress">
+                                                    <div class="meeting-progress-bar">
+                                                        <div class="meeting-progress-fill"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 提取结果 -->
+                                    <div class="meeting-result" id="meeting-result" style="display: none;">
+                                        <div class="result-header">
+                                            <div class="result-avatar"></div>
+                                            <div class="result-title">识别到的行动项</div>
+                                        </div>
+                                        <div class="action-items">
+                                             <div class="meeting-action-item">
+                                                <div class="action-check"></div>
+                                                <div class="action-content">
+                                                    <div class="action-title">完成用户体验优化方案</div>
+                                                    <div class="action-detail">负责人：李四 | 截止：本周五</div>
+                                                </div>
+                                            </div>
+                                            <div class="meeting-action-item">
+                                                <div class="action-check"></div>
+                                                <div class="action-content">
+                                                    <div class="action-title">协调API接口设计评审</div>
+                                                    <div class="action-detail">负责人：李四 | 截止：下周一</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="result-actions">
+                                            <button class="result-btn secondary">编辑</button>
+                                            <button class="result-btn primary" id="meeting-confirm">确认添加</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="channel-description">
+                                <h3>在会议中，提取行动</h3>
+                                <p class="desc-intro">对接会议纪要AI服务，自动分析会后纪要，精准识别个人任务和优先级。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 语音录入渠道 -->
+                    <div id="channel-voice" class="channel-panel">
+                        <div class="channel-showcase">
+                            <div class="demo-area">
+                                <div id="demo-voice" class="voice-interface">
+                                    <!-- 语音录入状态 -->
+                                    <div class="voice-header">
+                                        <div class="voice-title">语音助手</div>
+                                        <div class="voice-status">
+                                            <div class="voice-indicator"></div>
+                                            <span class="status-text">准备就绪</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- 语音波形显示 -->
+                                    <div class="voice-visualizer">
+                                        <div class="wave-container">
+                                            <div class="wave-bar" style="height: 20%"></div>
+                                            <div class="wave-bar" style="height: 40%"></div>
+                                            <div class="wave-bar" style="height: 60%"></div>
+                                            <div class="wave-bar" style="height: 80%"></div>
+                                            <div class="wave-bar" style="height: 45%"></div>
+                                            <div class="wave-bar" style="height: 65%"></div>
+                                            <div class="wave-bar" style="height: 35%"></div>
+                                            <div class="wave-bar" style="height: 55%"></div>
+                                            <div class="wave-bar" style="height: 25%"></div>
+                                            <div class="wave-bar" style="height: 70%"></div>
+                                        </div>
+                                        <div class="voice-prompt">点击开始录音</div>
+                                    </div>
+
+                                    <!-- 录音控制 -->
+                                    <div class="voice-controls">
+                                        <button class="voice-btn" id="voice-record">
+                                            <div class="record-indicator"></div>
+                                            <span class="btn-text">开始录音</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- 语音转文字结果 -->
+                                    <div class="voice-transcript" id="voice-transcript" style="display: none;">
+                                        <div class="transcript-header">
+                                            <div class="transcript-title">语音识别结果</div>
+                                            <div class="confidence-score">准确度: 96%</div>
+                                        </div>
+                                        <div class="transcript-content">
+                                            "明天上午九点发送项目进度报告，下午三点参加产品评审会议"
+                                        </div>
+                                    </div>
+
+                                    <!-- AI处理界面 -->
+                                    <div class="voice-ai-processing" id="voice-ai-processing" style="display: none;">
+                                        <div class="processing-content">
+                                            <div class="ai-avatar"></div>
+                                            <div class="processing-text">
+                                                <div class="processing-title">正在理解语义内容...</div>
+                                                <div class="processing-progress">
+                                                    <div class="voice-progress-bar">
+                                                        <div class="voice-progress-fill"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 结构化结果 -->
+                                    <div class="voice-result" id="voice-result" style="display: none;">
+                                        <div class="result-header">
+                                            <div class="result-avatar"></div>
+                                            <div class="result-title">生成的待办事项</div>
+                                        </div>
+                                        <div class="voice-tasks">
+                                             <div class="voice-task-item">
+                                                <div class="task-check"></div>
+                                                <div class="task-content">
+                                                    <div class="task-title">发送项目进度报告</div>
+                                                    <div class="task-detail">时间：明天上午9点</div>
+                                                </div>
+                                            </div>
+                                            <div class="voice-task-item">
+                                                <div class="task-check"></div>
+                                                <div class="task-content">
+                                                    <div class="task-title">参加产品评审会议</div>
+                                                    <div class="task-detail">时间：明天下午3点</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="result-actions">
+                                            <button class="result-btn secondary">重新录音</button>
+                                            <button class="result-btn primary" id="voice-confirm">确认添加</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="channel-description">
+                                <h3>在灵感中，即时记录</h3>
+                                <p class="desc-intro">高精度语音识别技术，深度理解语义内容，将自然语言转化为结构化待办事项。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 第四章：核心系统 (精修) -->
+    <section id="core-system" class="screen-expanded">
+        <div class="content-wrapper-full">
+            <div class="system-header">
+                <div class="vertical-title">
+                    <h2>核心系统</h2>
+                </div>
+                <div class="header-content">
+                    <p class="header-intro">一个由AI驱动、以情感为核心的完整生态，旨在重塑您的工作体验。</p>
+                </div>
+            </div>
+
+            <div class="system-main">
+                <!-- 主导航 -->
+                <div class="system-nav">
+                    <button class="nav-btn active" data-target="system-points">多维度积分</button>
+                    <button class="nav-btn" data-target="system-symbiosis">情感化共生</button>
+                    <button class="nav-btn" data-target="system-growth">萌宠成长</button>
+                    <button class="nav-btn" data-target="system-value">生态价值</button>
+                </div>
+
+                <!-- 主内容区 -->
+                <div class="system-content">
+
+                    <!-- 积分获取 -->
+                    <div id="system-points" class="system-panel active">
+                        <div class="panel-intro">
+                            <h3>每一次付出，都值得被看见</h3>
+                            <p>我们构建了一套精细化的积分获取机制，让你的努力，无论是完成一项复杂任务，还是保持一个健康的专注习惯，都能转化为即时、可视化的正向反馈。</p>
+                        </div>
+                        <div class="points-grid">
+                            <div class="point-card">
+                                <h4>任务完成体系</h4>
+                                <p>根据任务难度、优先级与完成质量，动态分配 <strong>5-200</strong> 积分。更包含连续完成、提前完成等多种奖励机制。</p>
+                                <div class="point-tag">+50</div>
+                            </div>
+                            <div class="point-card">
+                                <h4>工作状态监控</h4>
+                                <p>准时打卡、保持专注、合理安排工作时长，这些健康的习惯同样会为你赢得积分，让自律成为一种乐趣。</p>
+                                <div class="point-tag">+15</div>
+                            </div>
+                            <div class="point-card">
+                                <h4>团队协作奖励</h4>
+                                <p>在学城分享知识、帮助同事解决问题、或主导一次跨部门协作，都能获得丰厚回报，最高可达 <strong>500</strong> 积分。</p>
+                                <div class="point-tag">+500</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 情感化共生 -->
+                    <div id="system-symbiosis" class="system-panel">
+                        <div class="panel-intro">
+                            <h3>它不止是助手，更是伙伴</h3>
+                            <p>我们设计的核心，是构建一种全新的“关系”。AI伙伴能感知、适应并与你共同进化，成为一个真正懂你的数字生命体。</p>
+                        </div>
+                        <div class="symbiosis-sub-grid">
+                            <div class="symbiosis-visual-area">
+                                <div class="mascot-container">
+                                    <!-- 光环效果将直接应用在此图片上 -->
+                                    <img src="icons/IMG_9436.webp" id="halo-mascot" class="mascot-image calm" alt="AI伙伴">
+                                </div>
+                                <div class="emotion-controls">
+                                    <button class="control-btn active" data-state="calm">平静</button>
+                                    <button class="control-btn" data-state="tense">紧张</button>
+                                    <button class="control-btn" data-state="high-pressure">高压</button>
+                                </div>
+                            </div>
+                            <div class="symbiosis-features-area">
+                                <div class="feature-box">
+                                    <h4>生物节律同步</h4>
+                                    <p>基于你的作息，伙伴会在清晨展现清爽状态，在深夜提醒你休息，实现无干扰的个性化关怀。</p>
+                                </div>
+                                <div class="feature-box">
+                                    <h4>压力可视化管理</h4>
+                                    <p>精确的轮廓光环，是你工作状态的“晴雨表”。在高压时，它会主动提供减压建议。</p>
+                                </div>
+                                <div class="feature-box">
+                                    <h4>多模态情感识别</h4>
+                                    <p>融合语音、文本与行为数据，情感识别准确率超85%，让每一次互动都充满“情商”。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 萌宠成长 (已简化) -->
+                    <div id="system-growth" class="system-panel">
+                        <div class="panel-intro">
+                            <h3>你的成长，它的进化</h3>
+                            <p>每一次积分的获得，都在为你的伙伴注入成长能量。解锁新的形态、装备与IP联动形象，让成长之路充满惊喜。</p>
+                        </div>
+                        <div class="growth-showcase">
+                            <h4>五阶段进化</h4>
+                            <div class="growth-timeline">
+                                <div class="timeline-stage"><span>萌芽期</span><p>0+</p></div>
+                                <div class="timeline-stage"><span>成长期</span><p>500+</p></div>
+                                <div class="timeline-stage"><span>活跃期</span><p>2000+</p></div>
+                                <div class="timeline-stage"><span>精英期</span><p>5000+</p></div>
+                                <div class="timeline-stage"><span>传奇期</span><p>10000+</p></div>
+                            </div>
+                            <h4>IP联动与装备</h4>
+                            <div class="ip-carousel-simplified">
+                                <span>海绵宝宝系列</span>
+                                <span>皮卡丘系列</span>
+                                <span>美团定制系列</span>
+                                <span>专业装备</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 生态价值 -->
+                    <div id="system-value" class="system-panel">
+                        <div class="panel-intro">
+                            <h3>从虚拟到现实，价值完整闭环</h3>
+                            <p>积分不仅是荣誉，更是实实在在的价值。我们打通了美团生态，让你的努力可以兑换成生活中的小确幸，或工作上的硬通货。</p>
+                        </div>
+                        <div class="value-grid">
+                            <div class="value-card">
+                                <h4>实物奖励</h4>
+                                <p>小到一杯咖啡、一张电影票，大到最新款的电子产品，你的汗水值得最好的奖励。</p>
+                            </div>
+                            <div class="value-card">
+                                <h4>虚拟权益</h4>
+                                <p>兑换AI伙伴的高级功能、稀有皮肤，或解锁团队协作工具的付费权限。</p>
+                            </div>
+                            <div class="value-card">
+                                <h4>创新体验</h4>
+                                <p>通过AR技术让伙伴“活”在你的办公桌上，或参与团队萌宠竞赛，让工作更有趣。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 终章：邀请 -->
+    <section id="invitation" class="screen text-screen">
+        <div class="content-wrapper-text">
+            <p class="p-large">将效率，归还给专注。</p>
+            <p class="p-large">将成长，赋予每一次点击。</p>
+            <div class="cta-container">
+                <button class="cta-button">开启你的旅程</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>Design by Kenya Hara (Gemini)</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
